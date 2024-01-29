@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">URL Shortener</h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mt-4">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/all_urls">All Shortened URLs</a></li>
+            </ul>
+        </nav>
+        <form method="POST" action="/shorten" class="mt-4">
+            <div class="input-group">
+                <input type="url" name="long_url" class="form-control" placeholder="Enter URL" required>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">Shorten</button>
+                </div>
+            </div>
+        </form>
+        {% if short_url %}
+            <div class="alert alert-success mt-4">
+                <p>Shortened URL:</p>
+                <a href="{{ short_url }}">{{ short_url }}</a>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
